@@ -19,21 +19,22 @@ $easy_db_pwd = ''; //Contraseña de la base de datos
 $easy_db_host = ''; //Servidor donde está alojada la base (tipicamente localhost)
 $easy_db_db = ''; //nombre de la base de datos
 ```
-## USO de easyDB
-### Función SELECT
+##USO de easyDB
+###Función SELECT
 ```php
-function ConsultaTabla($tabla, $campo, 
+function ConsultaTabla($tabla, 
+          $campo, 
           $condicion=NULL, 
           $operadorIncluido = NULL, 
           $ordenado=NULL, 
           $debug = NULL)
 ```
-###Parametros Requeridos
+####Parametros Requeridos
 
 - `$tabla` : Tabla que será consultada
 - `$campo` : Array de campos que serán consultados
 
-###Parametros Opcionales
+####Parametros Opcionales
 
 - `$condicion` : Array de campo => valor que serán consultados
  
@@ -81,3 +82,29 @@ $resultado =  [totalItems] //total de filas devueltas
                 [...]
               [debug] //sentencia SQL contruida y ejecutada
 ```
+###Función UPDATE
+```php
+function ActualizaTabla($tabla, 
+          $campoValor, 
+          $condicionValor, 
+          $debug = NULL)
+```
+####Parametros Requeridos
+
+- `$tabla` : Tabla que será actualizada
+- `$campoValor` : Array de campo => valor que serán actualizados
+- `$condicionValor` : Array de campo => valor que será usado como filtro para el update
+
+>Todos los parametros de `$condicionValor` se contruyen con el operador "=" y no es posible modicarlo
+
+####Parametros Opcionales
+- `$debug` : Variable booleana. Si está en 1, la sentencia SQL construida NO se ejecutará y en su lugar devolverá a pantalla la sentencia SQL construida
+ 
+**Ejemplo de uso**
+```php
+$resultado = ActualizaTabla('usuario', 
+            array('work'=>'"The wall"', 'color'=>'"black"'),
+            array('nombre'=>'"Jon Snow"'));
+```
+>UPDATE usuario SET work = "The wall", color = "black" WHERE nombre = "Jon Snow"
+
