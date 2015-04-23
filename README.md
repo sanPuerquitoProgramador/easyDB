@@ -108,3 +108,26 @@ $resultado = ActualizaTabla('usuario',
 ```
 >UPDATE usuario SET work = "The wall", color = "black" WHERE nombre = "Jon Snow"
 
+###Función DELETE
+```php
+function BorraTabla($tabla,
+        $condicionValor,
+        $debug = NULL)
+```
+####Parametros Requeridos
+
+- `$tabla` : Tabla donde será eliminado el registro
+- `$condicionValor` : Array de campo => valor que será usado como filtro para el delete
+
+>Todos los parametros de `$condicionValor` se contruyen con el operador "=" y no es posible modicarlo
+
+####Parametros Opcionales
+- `$debug` : Variable booleana. Si está en 1, la sentencia SQL construida NO se ejecutará y en su lugar devolverá a pantalla la sentencia SQL construida
+ 
+**Ejemplo de uso**
+```php
+$resultado = BorraTabla('usuario', 
+            array('nombre'=>'"Jon"','apellido'=>'"Snow"');
+```
+>DELETE FROM  usuario WHERE nombre = "Jon" AND apellido = "Snow"
+
