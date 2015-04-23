@@ -131,3 +131,30 @@ $resultado = BorraTabla('usuario',
 ```
 >DELETE FROM  usuario WHERE nombre = "Jon" AND apellido = "Snow"
 
+###Función INSERT
+```php
+function InsertaTabla($tabla,
+          $campoValor,
+          $debug = NULL)
+```
+####Parametros Requeridos
+
+- `$tabla` : Tabla donde será insertado el registro
+- `$campoValor` : Array de campo => valor que serán insertados en la tabla
+
+####Parametros Opcionales
+- `$debug` : Variable booleana. Si está en 1, la sentencia SQL construida NO se ejecutará y en su lugar devolverá a pantalla la sentencia SQL construida
+ 
+**Ejemplo de uso**
+```php
+$resultado = IsertaTabla('usuario', 
+            array('nombre'=>'"Jon"','apellido'=>'"Snow"', domicilio = '"Invernalia"');
+```
+>INSERT INTO usuario (nombre, apellido, domicilio) VALUES ("Jon", "Snow", "Invernalia")
+
+En el array de respuesta se incluye el ID generado por la inserción. Considerando que la tabla cuente con un id númerico y auto incrementable
+```php
+$resultado =  [id] //ID generado por la inserción
+              [debug] //sentencia SQL contruida y ejecutada
+```
+
