@@ -147,7 +147,7 @@ function InsertaTabla($tabla,
  
 **Ejemplo de uso**
 ```php
-$resultado = IsertaTabla('usuario', 
+$resultado = InsertaTabla('usuario', 
             array('nombre'=>'"Jon"','apellido'=>'"Snow"', domicilio = '"Invernalia"');
 ```
 >INSERT INTO usuario (nombre, apellido, domicilio) VALUES ("Jon", "Snow", "Invernalia")
