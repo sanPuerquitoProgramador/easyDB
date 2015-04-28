@@ -8,8 +8,8 @@ Libreria de funciones en PHP que permiten un acceso sencillo a bases de datos My
 ##Incluir la libreria en tu proyecto
 
 ```php
-include_once(easyVAR.php)
-include_once(easyDB.php)
+include_once('easyVAR.php')
+include_once('easyDB.php')
 ```
 ### Variables en easyVAR
 
